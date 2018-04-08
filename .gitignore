@@ -1,0 +1,9 @@
+*,v
+igp_*
+*.swp
+/AutoRedirectPlugin.md5
+/AutoRedirectPlugin.sha1
+/AutoRedirectPlugin.tgz
+/AutoRedirectPlugin.zip
+/AutoRedirectPlugin.txt
+/AutoRedirectPlugin_installer*
