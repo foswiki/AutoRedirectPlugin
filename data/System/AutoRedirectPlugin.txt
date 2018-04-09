@@ -6,14 +6,15 @@
 
 ---++ Description
 
-This plugin lets you redirect certain urls in an automatic fashion. A redirect is performed based on a list
-of rules configured to Foswiki. Rules are executed in the given order taking actions when matching all preconditions.
-Redirects can be performed for a single topic, all of a web, for specific users in a given context.
+This plugin lets you redirect certain URLs in an automatic fashion. A redirect is performed based on a list
+of rules that are executed in the given order, taking actions when matching all preconditions.
+Redirects can be performed for a single topic, all of a web, for specific users in a given context, or for an
+action for all topics and users.
 
 This solition is specifically useful when some of your URLs have changed and you like to redirect users to the new
 location. Another important use case for public sites is to hide %SYSTEMWEB%, the Applications and all of its subwebs
-for unauthenticated users visiting the site. This will ensure that google won't downrate your site for duplicate content
-in these webs otherwise originally located on foswiki.org already. 
+for unauthenticated users visiting the site. As your site will host a substantial amount of documentation available
+otherwise on the net, you may want to hide it from crawlers redirecting them elsewhere.
 
 In general, it is always preferable to restrict view access using Foswiki's access control. However, sometimes this won't
 work out as you still need users to access content such as wiki applications using =%INCLUDE= or via view templates while
@@ -77,7 +78,7 @@ All properties are optional except =target= as otherwise the system won't know w
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
-| | |
+| 09 Apr 2018 | initial release |
 
 %META:FORM{name="PackageForm"}%
 %META:FIELD{name="Author" title="Author" value="Michael Daum"}%
