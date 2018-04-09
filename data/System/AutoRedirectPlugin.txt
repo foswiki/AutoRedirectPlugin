@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="micha" comment="reprev" date="1523203146" format="1.1" reprev="2" version="2"}%
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1523254854" format="1.1"  version="1"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
@@ -58,6 +58,15 @@ access to this part of your wiki. Once the user authenticated will he be able to
 Similarly to the second rule the third and fourth rule block unauthenticated access to the System web, with the exception of those parts of the System web that are required for
 people to register, reset their password or perform any of these type of actions. Note the special target =none= in the third rule that implements the nessary exception to
 the rest of the System web being blocked from access in the fourth rule.
+
+To summarize, each rule in the list may have the following properties:
+
+   * =target=: either a topic to redirect to, or a fully quallified URL
+   * =context=: a context identifier; most useful ones are: =view=, =edit=, =save=, =isadmin=, =authenticated=; see [[%SYSTEMWEB%.IfStatements]] for more
+   * =wikiName=: regular expression to check the !WikiName of the current user
+   * =web=, =topic=: regular expressions to check the current location
+
+All properties are optional except =target= as otherwise the system won't know where to redirect to.
 
 ---++ Installation Instructions
 %$INSTALL_INSTRUCTIONS%

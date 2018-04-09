@@ -37,22 +37,27 @@ sub initPlugin {
   my $wikiName = Foswiki::Func::getWikiName();
   foreach my $rule (@$rules) {
 
-    if (
-        (!$rule->{context} || $context->{$rule->{context}}) &&
-        (!$rule->{wikiName} || $wikiName =~ /^(?:$rule->{wikiName})$/) &&
-        (!$rule->{web} || $web =~ /^(?:$rule->{web})$/) &&
-        (!$rule->{topic} || $topic =~ /^(?:$rule->{topic})$/)) {
+    if ( (!$rule->{context} || $context->{$rule->{context}})
+      && (!$rule->{wikiName} || $wikiName =~ /^(?:$rule->{wikiName})$/)
+      && (!$rule->{web} || $web =~ /^(?:$rule->{web})$/)
+      && (!$rule->{topic} || $topic =~ /^(?:$rule->{topic})$/))
+    {
       $target = $rule->{target};
       last;
     }
   }
 
   if ($target && $target ne '' && $target ne 'none') {
-    my ($targetWeb, $targetTopic) = Foswiki::Func::normalizeWebTopicName($web, $target);
-    my $query = Foswiki::Func::getRequestObject();
-    my $url = Foswiki::Func::getScriptUrl($targetWeb, $targetTopic, 'view');
+    my $url;
+    if ($target =~ /^https?:/) {
+      $url = $target;
+    } else {
+      my ($targetWeb, $targetTopic) = Foswiki::Func::normalizeWebTopicName($web, $target);
+      my $query = Foswiki::Func::getRequestObject();
+      $url = Foswiki::Func::getScriptUrl($targetWeb, $targetTopic, 'view');
+    }
+    Foswiki::Func::setPreferencesValue('COVER', 'plain'); # to fasten the rest of the rendering process
     Foswiki::Func::redirectCgiQuery($query, $url);
-    Foswiki::Func::setPreferencesValue('COVER', 'plain');
     print STDERR "MATCH: redirecting to $targetWeb.$targetTopic ($url)\n" if TRACE;
   } else {
     print STDERR "No rule matches to perform an auto redirect for $web.$topic, $wikiName\n" if TRACE;
