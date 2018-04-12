@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="ProjectContributor" comment="" date="1523254854" format="1.1"  version="1"}%
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1523518274" format="1.1"  version="1"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
@@ -78,6 +78,7 @@ All properties are optional except =target= as otherwise the system won't know w
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+| 12 Apr 2018 | fixed some perl errors |
 | 09 Apr 2018 | initial release |
 
 %META:FORM{name="PackageForm"}%

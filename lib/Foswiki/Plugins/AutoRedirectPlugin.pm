@@ -20,8 +20,8 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '1.00';
-our $RELEASE = '9 Apr 2018';
+our $VERSION = '1.01';
+our $RELEASE = '12 Apr 2018';
 our $SHORTDESCRIPTION = 'automatically redirect a set of topics';
 our $NO_PREFS_IN_TOPIC = 1;
 
@@ -51,14 +51,17 @@ sub initPlugin {
     my $url;
     if ($target =~ /^https?:/) {
       $url = $target;
+      print STDERR "MATCH: redirecting to $$url\n" if TRACE;
     } else {
       my ($targetWeb, $targetTopic) = Foswiki::Func::normalizeWebTopicName($web, $target);
-      my $query = Foswiki::Func::getRequestObject();
       $url = Foswiki::Func::getScriptUrl($targetWeb, $targetTopic, 'view');
+      print STDERR "MATCH: redirecting to $targetWeb.$targetTopic ($url)\n" if TRACE;
     }
+
+    my $query = Foswiki::Func::getRequestObject();
     Foswiki::Func::setPreferencesValue('COVER', 'plain'); # to fasten the rest of the rendering process
     Foswiki::Func::redirectCgiQuery($query, $url);
-    print STDERR "MATCH: redirecting to $targetWeb.$targetTopic ($url)\n" if TRACE;
+
   } else {
     print STDERR "No rule matches to perform an auto redirect for $web.$topic, $wikiName\n" if TRACE;
   }
