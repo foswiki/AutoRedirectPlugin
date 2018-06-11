@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="ProjectContributor" comment="" date="1523518274" format="1.1"  version="1"}%
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1528713326" format="1.1" version="1"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
@@ -26,22 +26,31 @@ Let's have a look at the following example configuration stored in =$Foswiki::cf
 
 <verbatim class="perl">
 [
+  ### rule 1
+  {
+    "context" => "register",
+    "target" => "none",
+  },
+  ### rule 2
   {
     "context" => "view",
     "web" => "Sandbox",
     "topic" => "AutoRedirectTest",
     "target" => "Main.WebHome",
   },
+  ### rule 3
   {
     "wikiName" => "WikiGuest",
     "web" => "Applications.*",
     "target" => "Main.WebHome",
   },
+  ### rule 4
   {
     "web" => "System",
     "topic" => 'UserRegistration|ResetPassword|ChangeEmailAddress|ChangePassword',
     "target" => "none",
   },
+  ### rule 5
   {
     "web" => "System",
     "wikiName" => "WikiGuest",
@@ -50,13 +59,15 @@ Let's have a look at the following example configuration stored in =$Foswiki::cf
 ]
 </verbatim>
 
-The first rule in this list will redirect anybody visiting <nop>Sandbox.AutoRedorecTest to <nop>Main.WebHome. Note the use of the =view= context to still be able to access this topic
+The first rule in the list prevents any redirect in case we are processing a user registration.
+
+Rule (2) will redirect anybody visiting <nop>Sandbox.AutoRedirectTest to <nop>Main.WebHome. Note the use of the =view= context to still be able to access this topic
 via =edit=.
 
-The second rule hides any unauthenticated (!WikiGuest) user from visiting the Application web and all of its subwebs. This does not depend on any context being set thus fully blocking
+Rule (3) hides any unauthenticated (!WikiGuest) user from visiting the Application web and all of its subwebs. This does not depend on any context being set thus fully blocking
 access to this part of your wiki. Once the user authenticated will he be able to access the Apllication webs.
 
-Similarly to the second rule the third and fourth rule block unauthenticated access to the System web, with the exception of those parts of the System web that are required for
+Rules (4) and (5) block unauthenticated access to the System web, with the exception of those parts of the System web that are required for
 people to register, reset their password or perform any of these type of actions. Note the special target =none= in the third rule that implements the nessary exception to
 the rest of the System web being blocked from access in the fourth rule.
 
@@ -78,6 +89,7 @@ All properties are optional except =target= as otherwise the system won't know w
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+| 11 Jun 2018 | add =register= script to default configuration; improved docu |
 | 12 Apr 2018 | fixed some perl errors |
 | 09 Apr 2018 | initial release |
 

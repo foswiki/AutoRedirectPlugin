@@ -20,8 +20,8 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '1.01';
-our $RELEASE = '12 Apr 2018';
+our $VERSION = '1.02';
+our $RELEASE = '11 Jun 2018';
 our $SHORTDESCRIPTION = 'automatically redirect a set of topics';
 our $NO_PREFS_IN_TOPIC = 1;
 

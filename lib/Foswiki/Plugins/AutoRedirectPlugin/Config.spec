@@ -6,25 +6,28 @@
 # Rules to trigger a redirect.
 $Foswiki::cfg{Plugins}{AutoRedirectPlugin}{Rules} = [
   {
-    "context" => "view",
-    "web" => "Sandbox",
-    "topic" => "AutoRedirectTest",
-    "target" => "Main.WebHome",
+    'target' => 'none',
+    'context' => 'register',
   },
   {
-    "wikiName" => "WikiGuest",
+    "target" => "Main.WebHome",
     "web" => "Applications.*",
+    "wikiName" => "WikiGuest",
+  },
+  {
     "target" => "Main.WebHome",
+    "topic" => "(Web|Site)Preferences",
+    "wikiName" => "WikiGuest",
   },
   {
-    "web" => "System",
-    "topic" => 'UserRegistration|ResetPassword|ChangeEmailAddress|ChangePassword',
     "target" => "none",
+    "topic" => 'UserRegistration|ResetPassword|ChangeEmailAddress|ChangePassword',
+    "web" => "System",
   },
   {
+    "target" => "Main.WebHome",
     "web" => "System",
     "wikiName" => "WikiGuest",
-    "target" => "Main.WebHome",
   },
 ];
 
