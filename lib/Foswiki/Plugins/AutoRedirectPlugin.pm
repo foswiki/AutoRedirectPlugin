@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# AutoRedirectPlugin is Copyright (C) 2018 Michael Daum http://michaeldaumconsulting.com
+# AutoRedirectPlugin is Copyright (C) 2018-2024 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -21,8 +21,9 @@ use warnings;
 use Foswiki::Func ();
 
 our $VERSION = '1.02';
-our $RELEASE = '11 Jun 2018';
+our $RELEASE = '%$RELEASE%';
 our $SHORTDESCRIPTION = 'automatically redirect a set of topics';
+our $LICENSECODE = '%$LICENSECODE%';
 our $NO_PREFS_IN_TOPIC = 1;
 
 use constant TRACE => 0;

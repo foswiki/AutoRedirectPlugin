@@ -89,9 +89,10 @@ All properties are optional except =target= as otherwise the system won't know w
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
-| 11 Jun 2018 | add =register= script to default configuration; improved docu |
-| 12 Apr 2018 | fixed some perl errors |
-| 09 Apr 2018 | initial release |
+|  17 Jan 2024 | better default settings protecting sensitive topics |
+|  11 Jun 2018 | add =register= script to default configuration; improved docu |
+|  12 Apr 2018 | fixed some perl errors |
+|  09 Apr 2018 | initial release |
 
 %META:FORM{name="PackageForm"}%
 %META:FIELD{name="Author" title="Author" value="Michael Daum"}%
@@ -99,7 +100,7 @@ All properties are optional except =target= as otherwise the system won't know w
 %META:FIELD{name="Release" title="Release" value="%25$RELEASE%25"}%
 %META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
 %META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/%25TOPIC%25"}%
-%META:FIELD{name="Copyright" title="Copyright" value="2018 Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Copyright" title="Copyright" value="2018-2024 Michael Daum"}%
 %META:FIELD{name="License" title="License" value="GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]])"}%
 %META:FIELD{name="Home" title="Home" value="https://foswiki.org/Extensions/%25TOPIC%25"}%
 %META:FIELD{name="Support" title="Support" value="https://foswiki.org/Support/%25TOPIC%25"}%
