@@ -20,7 +20,7 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 our $RELEASE = '%$RELEASE%';
 our $SHORTDESCRIPTION = 'automatically redirect a set of topics';
 our $LICENSECODE = '%$LICENSECODE%';

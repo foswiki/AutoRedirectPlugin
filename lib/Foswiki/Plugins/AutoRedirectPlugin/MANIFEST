@@ -2,4 +2,5 @@
 data/System/AutoRedirectPlugin.txt 0644
 lib/Foswiki/Plugins/AutoRedirectPlugin/Config.spec 0644
 lib/Foswiki/Plugins/AutoRedirectPlugin/DEPENDENCIES 0644
+lib/Foswiki/Plugins/AutoRedirectPlugin/MANIFEST 0644
 lib/Foswiki/Plugins/AutoRedirectPlugin.pm 0644
